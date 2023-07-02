@@ -1,0 +1,29 @@
+
+<html>
+    <head>
+        <body>
+            <script>
+let map = new Map();
+map.set('key1', 'value1');
+map.set('key2', 'value2');
+
+console.log(map.get('key1')); // Output: value1
+
+map.delete('key2');
+
+console.log(map.has('key2')); // Output: false
+// Using Object
+let obj = {
+  key1: 'value1',
+  key2: 'value2'
+};
+
+console.log(obj.key1); // Output: value1
+
+delete obj.key2;
+
+console.log(obj.key2); // Output: undefined
+</script>
+        </body>
+    </head>
+</html>

@@ -1,0 +1,20 @@
+<html>
+    <head>
+        <body>
+            <script>
+function checkInfection(virusComposition, bloodComposition) {
+    if (virusComposition.includes(bloodComposition)) {
+      return 'POSITIVE';
+    } else {
+      return 'NEGATIVE';
+    }
+  }
+  
+  const virusComposition = 'coronavirus';
+  const bloodComposition = 'ravus';
+  
+  console.log(checkInfection(virusComposition, bloodComposition)); // Output: POSITIVE
+</script>
+        </body>
+    </head>
+</html>

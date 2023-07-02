@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+
+<script>
+function countVowels(str) {
+    let count = 0;
+    let vowels = "aeiouAEIOU";
+    for (let i = 0; i < str.length; i++) {
+      if (vowels.includes(str[i])) {
+        count++;
+      }
+    }
+    return count;
+  }
+  
+  let inputst = prompt("Enter a string:");
+  let vowelsCount = countVowels(inputst);
+  alert("The number of vowels in the string is: " + vowelsCount);
+
+  
+
+  
+  let input = prompt("Enter a string:");
+
+document.addEventListener("DOMContentLoaded", function() {
+  let sortedString = input.split("").sort().join("");
+  alert("Sorted string: " + sortedString);
+});
+</script>
+</html>

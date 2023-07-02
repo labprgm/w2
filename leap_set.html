@@ -1,0 +1,29 @@
+<html>
+    <head>
+        <body>
+            <script>
+                let startyear=prompt("enter a start year");
+                let endyear=prompt("enter a ending year");
+                leap_year(startyear,endyear);
+               function leap_year(startyear,endyear){
+                    let leapyears=[];
+                        for(let year=startyear;year<=endyear;year++){
+                            if(year%4==0&&year%100!=0||year%400==0){
+                                leapyears.push(year);
+                            }
+                         }
+                         alert("the leap years:"+leapyears.join(","));
+                }    
+
+
+                let myset=new Set();
+                myset.add(10);
+                myset.add(20);
+
+                for(let value of myset){
+                    document.writeln(value);
+                }
+            </script>
+        </body>
+    </head>
+</html>

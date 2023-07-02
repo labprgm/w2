@@ -1,0 +1,28 @@
+<html>
+    <head>
+        <body>
+            <button onclick="handleClick()">Click</button>
+
+            <p onmouseover="handleMouseOver()" onmouseout="handleMouseout()">over me</p>
+
+            <input type="text" onchange="handleChange()" onkeydown="handlekeydown()">
+        </body>
+        <script>
+            function handleClick(){
+                alert("button was cliked");
+            }
+            function handleMouseOver(){
+                alert("Mouse moved over the text");
+            }
+            function handleMouseout(){
+                alert("mouse moved out of the text");
+            }
+            function handleChange(){
+                alert("changed");
+            }
+            function handlekeydown(){
+                alert("KeyDown");
+            }
+        </script>
+    </head>
+</html>

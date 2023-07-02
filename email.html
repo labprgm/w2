@@ -1,0 +1,15 @@
+<html>
+    <head>
+        <body>
+            <script>
+function validateEmail(email) {
+    const regex = /^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+    return regex.test(email);
+  }
+  
+  const email = prompt('Enter an email address:');
+  console.log(validateEmail(email)); // Output: true or false
+</script>
+        </body>
+    </head>
+</html>

@@ -1,0 +1,19 @@
+<html>
+    <head>
+        <body>
+            <script>
+
+if ('geolocation' in navigator) {
+    navigator.geolocation.getCurrentPosition((position) => {
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+      console.log('Latitude:', latitude);
+      console.log('Longitude:', longitude);
+    });
+  } else {
+    console.log('Geolocation is not supported by this browser.');
+  }
+</script>
+</body>
+</head>
+</html>  

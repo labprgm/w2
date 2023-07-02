@@ -1,0 +1,40 @@
+<html>
+    <head>
+        <body>
+            <script>
+
+let inputString = "Albert Einstein was born in Ulm, on 14/03/1879.";
+let datePattern = /\d{2}\/\d{2}\/\d{4}/;
+let match = inputString.match(datePattern);
+if (match) {
+  alert("Date found: " + match[0]);
+} else {
+  alert("Date not found.");
+}
+
+
+let myMap = new Map();
+
+// Adding key-value pairs to the map
+myMap.set("name", "John");
+myMap.set("age", 30);
+myMap.set("city", "New York");
+
+// Retrieving values using keys
+let name = myMap.get("name");
+let age = myMap.get("age");
+let city = myMap.get("city");
+
+console.log("Name: " + name);
+console.log("Age: " + age);
+console.log("City: " + city);
+
+
+for(let [key,value] of myMap ){
+  console.log(key+"="+value);
+}
+</script>
+</body>
+
+    </head>
+</html>

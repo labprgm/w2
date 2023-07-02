@@ -1,0 +1,33 @@
+<html>
+    <head>
+        <body>
+            <script>
+                let numbers=prompt("enter a sorted array to serach element in it").split(",").map(Number);
+                let key=prompt("enter a key to be searched");
+                let result=binary(numbers,key);
+                if(result===-1){
+                    alert("element not found");
+                }else{
+                    alert("found at position"+result);
+                }
+
+                function binary(arr,key){
+                    let low=0;
+                    let high=arr.length-1;
+                    while(low<high){
+                        let mid=Math.floor((low+high)/2);
+                        if(arr[mid]==key){
+                            return mid;
+                        }else if(arr[mid]<key){
+                            low=mid+1;
+                        }
+                        else{
+                            high=mid-1;
+                        }
+                    }
+
+                }
+            </script>
+        </body>
+    </head>
+</html>

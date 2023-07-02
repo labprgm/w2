@@ -1,0 +1,37 @@
+<html>
+    <head>
+        <body>
+            <script>
+function add(a, b) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(a + b);
+      }, 2000);
+    });
+  }
+  
+  function subtract(a, b) {
+    return new Promise((resolve) => {
+      setTimeout(() => {
+        resolve(a - b);
+      }, 1500);
+    });
+  }
+  
+  async function performOperations(a, b) {
+    try {
+      const sum = await add(a, b);
+      console.log("Sum:", sum);
+  
+      const difference = await subtract(sum, b);
+      console.log("Difference:", difference);
+    } catch (error) {
+      console.log("Error:", error);
+    }
+  }
+  
+  performOperations(5, 3);
+</script>
+        </body>
+    </head>
+</html>

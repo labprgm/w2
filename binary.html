@@ -1,0 +1,43 @@
+<html>
+<script>
+function binarySearch(arr, key) {
+    let left = 0;
+    let right = arr.length - 1;
+  
+    while (left <= right) {
+      let mid = Math.floor((left + right) / 2);
+  
+      if (arr[mid] === key) {
+        return mid;
+      } else if (arr[mid] < key) {
+        left = mid + 1;
+      } else {
+        right = mid - 1;
+      }
+    }
+  
+    return -1;
+  }
+  
+  let numbers = [];
+  
+  while (true) {
+    let num = prompt("Enter a number to insert (or type 'done' to stop):");
+    if (num.toLowerCase() === "done") break;
+    numbers.push(parseInt(num));
+  }
+  
+  let key = parseInt(prompt("Enter the key to search for:"));
+  
+  numbers.sort((a, b) => a - b); // Binary search requires a sorted array
+  
+  let result = binarySearch(numbers, key);
+  if (result === -1) {
+    alert("Element not found.");
+  } else {
+    alert("Element found at index: " + result);
+  }
+  </script>
+
+  </html>
+  

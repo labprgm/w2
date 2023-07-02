@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+
+<script>
+function jumpSearch(arr, key) {
+    const n = arr.length;
+    const blockSize = Math.floor(Math.sqrt(n));
+    let start = 0;
+    let end = blockSize;
+  
+    while (arr[Math.min(end, n) - 1] < key) {
+      start = end;
+      end += blockSize;
+      if (start >= n) {
+        return -1;
+      }
+    }
+  
+    while (arr[start] < key) {
+      start++;
+      if (start === Math.min(end, n)) {
+        return -1;
+      }
+    }
+  
+    if (arr[start] === key) {
+      return start;
+    }
+  
+    return -1;
+  }
+  
+  let numbers = prompt("Enter a list of numbers (comma-separated):").split(",").map(Number);
+  let key = parseInt(prompt("Enter the key to search for:"));
+  
+  let result = jumpSearch(numbers, key);
+  if (result === -1) {
+    alert("Element not found.");
+  } else {
+    alert("Element found at index: " + result);
+  }
+
+  
+
+  
+  function caesarCipher(text, shift) {
+    let encryptedText = "";
+  
+    for (let i = 0; i < text.length; i++) {
+      let char = text[i];
+  
+      // Encrypt uppercase letters
+      if (char.match(/[A-Z]/)) {
+        let code = ((char.charCodeAt(0) - 65 + shift) % 26) + 65;
+        char = String.fromCharCode(code);
+      }
+      // Encrypt lowercase letters
+      else if (char.match(/[a-z]/)) {
+        let code = ((char.charCodeAt(0) - 97 + shift) % 26) + 97;
+        char = String.fromCharCode(code);
+      }
+  
+      encryptedText += char;
+    }
+  
+    return encryptedText;
+  }
+  
+  let text = prompt("Enter the text to encrypt:");
+  let shift = parseInt(prompt("Enter the shift pattern:"));
+  
+  let encryptedText = caesarCipher(text, shift);
+  alert("Encrypted text: " + encryptedText);
+  </script>
+  </html>
