@@ -1,0 +1,247 @@
+
+1]console.time('Map Performance');
+const map = new Map();
+for (let i = 0; i < 100000; i++) {
+  map.set('key' + i, i);
+}
+for (let i = 0; i < 100000; i++) {
+  map.delete('key' + i);
+}
+for (let i = 0; i < 100000; i++) {
+  map.get('key' + i);
+}
+console.timeEnd('Map Performance');
+
+// Object performance test
+console.time('Object Performance');
+const obj = {};
+for (let i = 0; i < 100000; i++) {
+  obj['key' + i] = i;
+}
+for (let i = 0; i < 100000; i++) {
+  delete obj['key' + i];
+}
+for (let i = 0; i < 100000; i++) {
+  obj['key'+i];
+}
+console.timeEnd('Object Performance');
+
+
+2]/// Performance comparison between Set and Array for uniqueness and membership testing
+
+// Set performance test
+console.time('Set Performance');
+const set = new Set();
+for (let i = 0; i < 100000; i++) {
+  set.add(i);
+}
+for (let i = 0; i < 100000; i++) {
+  set.has(i);
+}
+console.timeEnd('Set Performance');
+
+// Array performance test
+console.time('Array Performance');
+const array = [];
+for (let i = 0; i < 100000; i++) {
+ if (!array.includes(i)) {
+    array.push(i);
+  }
+}
+for (let i = 0; i < 100000; i++) {
+  array.includes(i);
+}
+console.timeEnd('Array Performance');
+
+3]function performOperation(a, b, operator) {
+    return new Promise((resolve, reject) => {
+      setTimeout(() => {
+        let result;
+  
+        switch (operator) {
+          case '+':
+            result = a + b;
+            break;
+          case '-':
+            result = a - b;
+            break;
+          case '*':
+            result = a * b;
+            break;
+          case '/':
+            result = a / b;
+            break;
+          default:
+            reject("Invalid operator");
+        }
+  
+        resolve(result);
+      }, 1000); // Delay of 1 second
+    });
+  }
+  
+  async function performOperations() {
+    try {
+      const operand1 = Number(prompt("Enter the first operand:"));
+      const operator = prompt("Enter the operator (+, -, *, /):");
+      const operand2 = Number(prompt("Enter the second operand:"));
+  
+      const result = await performOperation(operand1, operand2, operator);
+      alert("Result:"+ result);
+    } catch (error) {
+      alert("Error:" + error);
+    }
+  }
+performOperations();
+
+4]function tripToParis(location) {
+  return new Promise((resolve, reject) => {
+    if (location === 'Paris') {
+      resolve("Let's take a trip to Paris");
+    } else {
+      reject('Invalid Location');
+    }
+  });
+}
+
+const userLocation = prompt('Enter a location:');
+tripToParis(userLocation)
+  .then((message) => {
+    alert(message);
+  })
+  .catch((error) => {
+    alert(error);
+  });
+
+5]const convertWeight = (weight) => {
+  const lbs = weight * 2.2;
+
+  if (lbs > 150) {
+    return 'obese';
+  } else if (lbs >= 100 && lbs <= 150) {
+    return 'you are ok';
+  } else {
+    return 'underweight';
+  }
+};
+const weightInKg = parseFloat(prompt('Enter weight in kilograms (kg):'));
+const result = convertWeight(weightInKg);
+alert(result);
+
+6]let available = [1,4,6,8,9,14,18,22]
+function bookFlight(passenger_time)
+{
+    return new Promise((resolve,reject)=>{
+        let find = available.indexOf(passenger_time)
+        if(find>=0){
+            resolve("Flight is booked so hotel is booked");
+        }
+        else{
+            reject("Flight is not available so hotel is not booked");
+        }
+    });
+}
+function bookHotel(){
+    let time = Number(prompt('Enter the time'));
+    bookFlight(time)
+    .then((booked)=>{
+      alert(booked);
+    })
+    .catch((notbooked)=>{
+      alert(notbooked)
+    });
+  }
+bookHotel();
+
+7]function identifyInfection(virusComposition, bloodComposition) {
+  let virusIndex = 0;
+  let bloodIndex = 0;
+
+  while (virusIndex < virusComposition.length && bloodIndex < bloodComposition.length) {
+    if (virusComposition[virusIndex] === bloodComposition[bloodIndex]) {
+      bloodIndex++;
+    }
+    virusIndex++;
+  }
+
+  if (bloodIndex === bloodComposition.length) {
+    return 'POSITIVE';
+  } else {
+    return 'NEGATIVE';
+  }
+}
+const virusComposition = prompt('Enter the virus composition:').toLowerCase();
+const bloodComposition = prompt('Enter the blood composition:').toLowerCase();
+
+const result = identifyInfection(virusComposition, bloodComposition);
+alert(result);
+
+8]<!DOCTYPE html>
+<html>
+<head>
+  <title> Validation</title>
+</head>
+<body>
+  <h1> Validation</h1>
+
+  <label for="usnInput">Enter email address:</label>
+  <input type="text" id="usnInput">
+  <button onclick="validate()">Validate</button>
+
+  <script>
+    
+    function validate() {
+      var em = document.getElementById("usnInput").value;
+      var pattern = /^[a-zA-Z0-9._-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}$/;
+
+      if (pattern.test(em)) {
+        alert("Valid email");
+      } else {
+        alert("Invalid email");
+      }
+    }
+  </script>
+</body>
+</html>
+
+9]if (navigator.geolocation) {
+  // Get the current position
+  navigator.geolocation.getCurrentPosition(
+    (position) => {
+      // Extract the latitude and longitude from the position object
+      const latitude = position.coords.latitude;
+      const longitude = position.coords.longitude;
+
+      // Display the latitude and longitude
+      alert("Latitude: " + latitude);
+      alert("Longitude: " + longitude);
+    },
+    (error) => {
+      alert("Error occurred while retrieving the position: " + error.message);
+    }
+  );
+} else {
+  alert("Geolocation is not supported by your browser");
+}
+
+10]<!DOCTYPE html>
+<html>
+<body>
+   <button id="my-button">Click Me</button>
+   <div id="count">Button clicked: 0 times</div>
+   <script>
+      let button = document.getElementById("my-button");
+      let clickCount = 0;
+      let display = document.getElementById("count");
+      if (localStorage.getItem("clickCount")) {
+         clickCount = parseInt(localStorage.getItem("clickCount"));
+      }
+      button.addEventListener("click", sample) 
+         function sample() {
+         clickCount++;
+         display.innerHTML = "Button clicked: " +  clickCount + " times";
+         localStorage.setItem("clickCount", clickCount);
+    }
+   </script>
+</body>
+</html>
